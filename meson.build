@@ -1,5 +1,5 @@
 project (
-    'elementary',
+    'elementary-blue',
     version: '4.3.1',
     license : 'GPL3+'
 )
@@ -17,18 +17,12 @@ directories = [
     # the second is the associated Context
     ['actions', 'Actions'],
     ['apps', 'Applications'],
-    ['categories', 'Categories'],
-    ['devices', 'Devices'],
-    ['emblems', 'Emblems'],
-    ['emotes', 'Emotes'],
-    ['mimes', 'MimeTypes'],
-    ['places', 'Places'],
-    ['status', 'Status']
+    ['places', 'Places']
 ]
 
 # Add a directory here to the list if needed.
 
-sizes = ['16', '24', '32', '48', '64', '128', 'symbolic']
+sizes = ['16', '24', '32', '48', '64', '128']
 
 # Symbolic icons are made to have a maximum size.
 
@@ -179,19 +173,3 @@ foreach directory_entry : directories
     endforeach
 endforeach
 
-if (get_option ('palettes'))
-    install_data(
-        'elementary.gpl',
-        install_dir: join_paths (get_option('datadir'), 'gimp', '2.0', 'palettes')
-    )
-
-    install_data(
-        'elementary.gpl',
-        install_dir: join_paths (get_option('datadir'), 'inkscape', 'palettes')
-    )
-endif
-
-subdir('cursors')
-if (get_option ('volume_icons'))
-  subdir('volumeicon')
-endif
